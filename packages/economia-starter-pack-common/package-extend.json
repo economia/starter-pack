@@ -1,0 +1,15 @@
+{
+  "license": "MIT",
+
+  "scripts": {
+    "test": "jest",
+    "format": "npm run prettier -- --write",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

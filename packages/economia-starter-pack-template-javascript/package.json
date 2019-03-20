@@ -1,5 +1,5 @@
 {
-  "name": "@it-economia/economia-starter-pack",
+  "name": "@it-economia/economia-starter-pack-template-javascript",
   "version": "0.1.0",
   "description": "Economia starter pack template",
   "main": "index.js",
@@ -7,9 +7,10 @@
     "postinstall": "node index"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "object-assign-deep": "^0.4.0"
   }
 }

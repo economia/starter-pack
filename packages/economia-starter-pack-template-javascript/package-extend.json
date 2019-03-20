@@ -1,13 +1,6 @@
 {
   "scripts": {
-    "test": "jest",
-    "format": "npm run prettier -- --write",
     "prettier": "prettier **/*.{js,json}"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.js": ["eslint --fix", "prettier --write", "git add", "jest --bail --findRelatedTests"],

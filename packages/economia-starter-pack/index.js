@@ -20,14 +20,15 @@ program
   .command('start <projectName>')
   .description('Create new Economia project')
   .option('--starter <alternative-package>', 'different version of starter pack')
+  .option('--common <alternative-common>', 'different version of common files pack')
   .option('--template <template>', 'default to javascript')
   .action(function(projectName, cmd) {
-    start(projectName, cmd.starter, cmd.template)
+    start(projectName, cmd.starter, cmd.common, cmd.template)
   })
 
 program.parse(process.argv)
 
-function start(projectName, starter, template) {
+function start(projectName, starter, common, template) {
   const npmInfo = checkNpmVersion()
   if (!npmInfo.hasMinNpm) {
     console.log(
@@ -78,20 +79,24 @@ function start(projectName, starter, template) {
   templatePackage = starter || '@it-economia/economia-starter-pack'
   templatePackage += '-template-' + template
 
-  npm(['install', '--save', '--save-exact', templatePackage], projectName)
+  let commonPackage = common || '@it-economia/economia-starter-pack-common'
+
+  npm(['install', '--save', '--save-exact', commonPackage, templatePackage], projectName)
     .then(function() {
       console.log('Cleaning up')
       console.log()
       return npm(['remove', '--save', '@it-economia/economia-starter-pack'], projectPath)
     })
-    .catch(function(reject) {
-      console.log(
-        chalk.red.bold(
-          'Failed to initialize. Command ' + reject.command + ' exitted with code ' + reject.code,
-        ),
-      )
-      process.exit(1)
-    })
+    .catch(handleError)
+}
+
+function handleError(reject) {
+  console.log(
+    chalk.red.bold(
+      'Failed to initialize. Command ' + reject.command + ' exitted with code ' + reject.code,
+    ),
+  )
+  process.exit(1)
 }
 
 function checkNpmVersion() {

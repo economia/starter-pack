@@ -4,8 +4,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const chalk = require('chalk')
 const childProcess = require('child_process')
-const objectAssignDeep = require(`object-assign-deep`)
-
+const objectAssignDeep = require('object-assign-deep')
 const root = process.env.npm_config_prefix
 
 if (!process.env.npm_config_save_exact) {
@@ -17,7 +16,9 @@ console.log()
 
 spawn('git', ['-C', root, 'init'])
   .then(function() {
-    const dependencies = [
+    const devDependencies = [
+      '@types/jest',
+      '@typescript-eslint/eslint-plugin',
       'eslint',
       'eslint-config-prettier',
       'eslint-config-standard',
@@ -30,15 +31,17 @@ spawn('git', ['-C', root, 'init'])
       'jest-runner-eslint',
       'lint-staged',
       'prettier',
+      'ts-jest',
+      'typescript',
     ]
 
     console.log()
-    console.log('Installing dependencies:')
-    dependencies.forEach(function(dependency) {
-      console.log('- ' + dependency)
+    console.log('Installing dev dependencies:')
+    devDependencies.forEach(function(devDependency) {
+      console.log('- ' + devDependency)
     })
     console.log()
-    return npm(['install', '--save-dev'].concat(dependencies))
+    return npm(['install', '--save-dev'].concat(devDependencies))
   })
   .then(function() {
     console.log('Copying config files')
