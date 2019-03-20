@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "Economia start pack CLI for creating new Economia projects",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {

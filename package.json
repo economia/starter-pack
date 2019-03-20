@@ -23,7 +23,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "npm run prettier -- --write",
-    "prettier": "prettier **/*.js"
+    "prettier": "prettier **/*.{js,json}"
   },
   "husky": {
     "hooks": {
@@ -36,6 +36,10 @@
       "prettier --write",
       "git add",
       "jest --bail --findRelatedTests"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
     ]
   },
   "author": "",
