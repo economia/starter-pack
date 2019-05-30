@@ -76,16 +76,16 @@ function start(projectName, starter, common, template) {
   )
 
   let templatePackage
-  templatePackage = starter || '@it-economia/economia-starter-pack'
+  templatePackage = starter || '@economia/starter-pack'
   templatePackage += '-template-' + template
 
-  let commonPackage = common || '@it-economia/economia-starter-pack-common'
+  let commonPackage = common || '@economia/starter-pack-common'
 
   npm(['install', '--save', '--save-exact', commonPackage, templatePackage], projectName)
     .then(function() {
       console.log('Cleaning up')
       console.log()
-      return npm(['remove', '--save', '@it-economia/economia-starter-pack'], projectPath)
+      return npm(['remove', '--save', '@economia/starter-pack'], projectPath)
     })
     .catch(handleError)
 }

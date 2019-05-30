@@ -1,5 +1,5 @@
 {
-  "name": "@it-economia/economia-starter-pack-cli",
+  "name": "@economia/starter-pack-cli",
   "version": "0.1.0",
   "description": "Economia start pack CLI for creating new Economia projects",
   "main": "index.js",

@@ -1,5 +1,4 @@
 {
-	"parser": "typescript",
 	"singleQuote": true,
 	"semi": true,
 	"tabWidth": 2,
@@ -8,5 +7,11 @@
 	"bracketSpacing": true,
 	"printWidth": 120,
 	"trailingComma": "all",
-	"proseWrap": "always"
+	"proseWrap": "always",
+	"overrides": [{
+		"files": "*.ts",
+		"options": {
+			"parser": "typescript"
+		}
+	}]
 }

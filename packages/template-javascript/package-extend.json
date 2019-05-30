@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "prettier": "prettier **/*.{js,json}"
+    "prettier": "prettier \"**/*.{js,json}\""
   },
   "lint-staged": {
     "*.js": ["eslint --fix", "prettier --write", "git add", "jest --bail --findRelatedTests"],
